@@ -1,6 +1,7 @@
 import picar_4wd as fc
+from random import randint
 
-speed = 30
+speed = 10
 
 def main():
     while True:
@@ -16,10 +17,19 @@ def main():
         # else:
         #     fc.forward(speed)
 
-        if all([x == 2  for x in tmp]) == 2:
+        if all([x == 2  for x in scan_list]):
             fc.forward(speed)
         else:
             fc.turn_right(speed)
+        # if tmp != [2, 2, 2, 2]:
+        #     fc.stop()
+        #     turnDirection = randint(0,1)
+        #     fc.backward(speed)
+        #     fc.time.sleep(1)
+        #     if turnDirection == 1:
+        #         fc.turn_left(speed)
+        #     else:
+        #         fc.turn_right(speed)
 
 if __name__ == "__main__":
     try: 
