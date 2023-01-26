@@ -17,7 +17,7 @@ def main():
         # else:
         #     fc.forward(speed)
 
-        if all([x == 2 for x in scan_list]):
+        if all([x == 2 for x in scan_list[3:7]]):
             fc.forward(speed)
         else:
             view_point = len(scan_list) // 2
