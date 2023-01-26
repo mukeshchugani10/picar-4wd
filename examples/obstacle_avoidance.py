@@ -17,10 +17,22 @@ def main():
         # else:
         #     fc.forward(speed)
 
-        if all([x == 2  for x in scan_list]):
+        if all([x == 2 for x in scan_list]):
             fc.forward(speed)
         else:
-            fc.turn_right(speed)
+            view_point = len(scan_list) // 2
+            left_view = scan_list[: view_point]
+            right_view = scan_list[view_point:]
+            print(right_view, left_view, view_point)
+            number_of_obstacles_left_view = view_point - left_view.count(2)
+            number_of_obstacles_right_view = view_point - right_view.count(2)
+            if number_of_obstacles_left_view > number_of_obstacles_right_view:
+                fc.turn_right(speed)
+                print("moving right")
+            else:
+                fc.turn_left(speed)
+                print("moving left")
+
         # if tmp != [2, 2, 2, 2]:
         #     fc.stop()
         #     turnDirection = randint(0,1)
