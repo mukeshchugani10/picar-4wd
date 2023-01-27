@@ -1,9 +1,12 @@
+import time
+
 import picar_4wd as fc
-from random import randint
 
 speed = 10
 
 def main():
+    fc.servo.set_angle(0)
+    time.sleep(1)
     while True:
         scan_list = fc.scan_step(35)
         if not scan_list:
@@ -27,8 +30,6 @@ def main():
                 fc.turn_left(speed)
                 print("moving left")
 
-            fc.forward(speed)
-            fc.forward(speed)
 
 
 if __name__ == "__main__":
